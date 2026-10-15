@@ -1,0 +1,7 @@
+{
+  "name": "用户中途修改出行天数",
+  "query": "单人去杭州玩 3 天，城市逛吃，中端舒适预算",
+  "followup": true,
+  "changes": {"days": 5},
+  "expect_contains": ["杭州", "Day5", "打包清单"]
+}

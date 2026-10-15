@@ -1,0 +1,40 @@
+[project]
+name = "tubai-agent"
+version = "1.0.0"
+description = "途备 Agent — 基于 Kiro 的智能旅行规划助手（行程 / 穿搭 / 打包）"
+readme = "README.md"
+requires-python = "==3.12.*"
+dependencies = [
+    "pydantic>=2.14",
+    "httpx>=0.28",
+    "typer>=0.27",
+    "rich>=15.0",
+]
+
+[project.scripts]
+tubai = "tubai.__main__:app"
+
+[dependency-groups]
+dev = [
+    "pyright[nodejs]>=1.1.414",
+    "pytest>=9.1",
+    "ruff>=0.17",
+]
+
+[build-system]
+requires = ["uv_build>=0.11.28,<0.12.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-root = "src"
+
+[tool.ruff.lint]
+extend-select = ["UP", "I", "B", "SIM"]
+
+[tool.ruff.format]
+quote-style = "double"
+
+[tool.pyright]
+include = ["src"]
+pythonVersion = "3.12"
+typeCheckingMode = "standard"
